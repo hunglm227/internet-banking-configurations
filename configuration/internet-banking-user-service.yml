@@ -1,0 +1,51 @@
+spring:
+  application:
+    name: internet-banking-user-service
+  datasource:
+    url: jdbc:mysql://localhost:3306/demo_finace_mrcsv
+    username: root
+    password: root
+  jpa:
+    hibernate:
+      ddl-auto: update
+  flyway:
+    enabled: false
+    validate-on-migrate: false
+  main:
+    allow-bean-definition-overriding: true
+
+server:
+  port: 8083
+
+feign:
+  client:
+    config:
+      default:
+        loggerLevel: basic
+  httpclient:
+    enabled: true
+
+client:
+  post:
+    baseUrl: http://localhost:8082
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8081/eureka
+
+info:
+  app:
+    name: ${spring.application.name}
+
+app:
+  config:
+    keycloak:
+      server-url: http://localhost:8080
+      realm: abb-internet-banking
+      clientId: internet-banking-api-client
+      client-secret: vobU9H0uwfuoKkwDkDpbrtSWNRqTNRT4
+  feign:
+    config:
+      app-name-core-bank: abb-core-banking-service
+      path-name-core-bank: http://localhost:8082/core-bank

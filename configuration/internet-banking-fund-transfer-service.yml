@@ -1,0 +1,27 @@
+server:
+  port: 8084
+
+spring:
+  application:
+    name: internet-banking-fund-transfer-service
+  datasource:
+    url: jdbc:mysql://localhost:3306/demo_finace_mrcsv
+    username: root
+    password: root
+  jpa:
+    hibernate:
+      ddl-auto: update
+  flyway:
+    enabled: false
+    validate-on-migrate: false
+  main:
+    allow-bean-definition-overriding: true
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8081/eureka
+
+info:
+  app:
+    name: ${spring.application.name}

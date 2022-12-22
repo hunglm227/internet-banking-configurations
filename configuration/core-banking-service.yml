@@ -1,0 +1,23 @@
+spring:
+  application:
+    name: abb-core-banking-service
+  datasource:
+    url: jdbc:mysql://localhost:3306/demo_finace_mrcsv
+    username: root
+    password: root
+  jpa:
+    hibernate:
+      ddl-auto: update
+  flyway:
+    enabled: false
+    validate-on-migrate: false
+  main:
+    allow-bean-definition-overriding: true
+
+server:
+  port: 8092
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8081/eureka
